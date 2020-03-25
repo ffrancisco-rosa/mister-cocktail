@@ -1,5 +1,31 @@
 
-<div>
-  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400 %>
+<div class="cocktail-img">
+  <%= cl_image_tag("sample.jpg") %>
+  <%#= cl_image_tag @cocktail.photo.key %>
+</div>
 
+<div class="container">
+  <div class="row">
+    <div class="doses-box col">
+      <h4>Ingredient List</h4>
+      <% if @doses.empty? %>
+        <p>Add a new ingredient to this cocktail!</p>
+      <% else %>
+        <% @doses.each do |dose| %>
+          <div>
+            <p><strong> <%= Ingredient.find(dose.ingredient_id).name %> </strong></p>
+            <p> <%= dose.description %> </p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="ingredients-box col">
+      <h4>Add a new ingredient</h4>
+    </div>
+  </div>
+
+  <div class="reviews">
+
+  </div>
 </div>
