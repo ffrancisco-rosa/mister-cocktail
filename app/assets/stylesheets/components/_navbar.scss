@@ -1,5 +1,5 @@
 .nav-bar {
-  background-color: #0D221E;
+  background-color: #1f2833;
   height: 80px;
   display: flex;
   align-items: center;
@@ -28,14 +28,12 @@
 .navbar-options {
   display: flex;
   align-items: center;
-  margin-right: 32px;
+  margin-right: 40px;
+
   h5 {
-    color:white;
+    color:black;
     margin-right: 8px;
-  }
-
-  button {
-    font-weight: bold;
-
+    text-decoration: none;
   }
 }
+

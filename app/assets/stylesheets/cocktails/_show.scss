@@ -10,6 +10,12 @@
   margin-bottom: 32px;
 }
 
+.reviews-title {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+
 .review {
   display: flex;
   align-items: center;
@@ -22,33 +28,16 @@
 .review .review-content {
   flex-grow: 1;
   padding: 0 24px;
+
+
 }
 
 .review p {
   margin: 0;
   line-height: 1.4;
+  color: black;
 }
 
-.review small {
-  color: #999999;
-  font-weight: bold;
-}
-.review .review-actions {
-  opacity: 0;
-  display: flex;
-  transition: ease .3s;
-}
-
-.review:hover .review-actions {
-  opacity: 1;
-}
-
-.review .review-actions a {
-  color: #999999;
-  margin-left: 16px;
-  font-size: 14px;
-}
-
-.review .review-actions a:hover {
-  color: #555555;
+.fa-star {
+  color: yellow;
 }

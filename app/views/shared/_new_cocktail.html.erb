@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Add a Cocktail</button>
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" class="button-navbar">Add a Cocktail</button>
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -11,16 +11,19 @@
         </button>
       </div>
       <div class="modal-body">
-
+            <div>
+              <%= image_tag("https://media.giphy.com/media/3o7TKDhgKC52OZhV0k/source.gif", class: "img-create-modal mb-4") %>
+            </div>
             <%= simple_form_for (Cocktail.new), method: :post, wrapper: :inline_form, html: { class: 'form-inline' } do |f| %>
             <div class="form-row">
               <!-- <div class="col"> -->
               <%= f.label 'Name', class: "new-form-name mr-4" %>
-              <%= f.input :name, class: "form-control" %>
+              <%= f.input :name, class: "form-control new-form-name" %>
               <!-- </div> -->
             </div>
             <div class="form-row">
-              <%= f.input :photo, as: :file, class: "form-control"  %>
+              <%= f.label 'Photo', class: "new-form-name mt-4 mr-4" %>
+              <%= f.input :photo, as: :file, class: "form-control new-form-name mt-4", label: false %>
             </div>
            <div class="form-group row">
           <%#= f.submit "Create Cocktail", class: "btn btn-secondary" %>
@@ -29,8 +32,8 @@
 
       </div>
       <div class="modal-footer _new_footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= f.submit "Create Cocktail", class: "btn btn-secondary" %>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <%= f.submit "Create Cocktail", class: "btn btn-success" %>
       </div>
        <% end %>
     </div>

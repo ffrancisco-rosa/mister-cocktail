@@ -1,9 +1,8 @@
-
 <div class="cocktail-img">
-  <%= cl_image_tag("sample.jpg") %>
-  <%#= cl_image_tag @cocktail.photo.key %>
-</div>
+  <%#= cl_image_tag("sample.jpg") %>
+  <%= cl_image_tag @cocktail.photo.key %>
 
+</div>
 <div class="container">
   <div class="row">
     <div class="element-box col">
@@ -52,7 +51,7 @@
         <%= simple_form_for [@cocktail, @review] do |f| %>
         <%= f.input :content %>
         <%= f.input :rating, collection: 1..5 %>
-        <%= f.submit "Add Review", class: "btn btn-secondary" %>
+        <%= f.submit "Add Review", class: "btn btn-success" %>
         <% end %>
 
       </div>
@@ -60,22 +59,26 @@
     </div>
 
     <div>
-      <h3 class="col"> Users Reviews </h3>
+      <h3 class="col reviews-title"> Reviews </h3>
       <div class="reviews-box" >
         <% if @reviews.empty? %>
-          <h5> This cocktail doesn't have reviews! </h5>
+          <h5> This cocktail doesn't have any reviews... yet! </h5>
         <% else %>
           <% @reviews.each do |review| %>
             <div class="review">
-              <%= cl_image_tag @cocktail.photo.key, class: "avatar-large" %>
               <div class="review-content row">
-                <p class="col-4"> <% @average.times do  %> <i class="fas fa-star"></i> <% end %> </p>
-                <p class="col-8"> <%= review.content %> </p>
-              </div>
-
-              <div class="review-actions">
-                <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-                <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+                <div class="col-4">
+                  <div class="row">
+                    <p class="mr-3"><strong>Rating:</strong></p>
+                    <p class=""> <% review.rating.times do  %> <i class="fas fa-star"></i> <% end %> </p>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="row">
+                    <p class="mr-3"><strong>Description:</strong></p>
+                    <p> <%= review.content %> </p>
+                  </div>
+                </div>
               </div>
             </div>
           <% end %>
