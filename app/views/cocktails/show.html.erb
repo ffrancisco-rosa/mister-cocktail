@@ -6,26 +6,46 @@
 
 <div class="container">
   <div class="row">
-    <div class="doses-box col">
+    <div class="element-box col">
       <h4>Ingredient List</h4>
       <% if @doses.empty? %>
         <p>Add a new ingredient to this cocktail!</p>
       <% else %>
         <% @doses.each do |dose| %>
           <div>
-            <p><strong> <%= Ingredient.find(dose.ingredient_id).name %> </strong></p>
-            <p> <%= dose.description %> </p>
+            <p><strong> <%= Ingredient.find(dose.ingredient_id).name %> </strong> - <%= dose.description %> <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do %> <i class="fas fa-trash-alt"></i> <% end %></p>
           </div>
         <% end %>
       <% end %>
     </div>
 
-    <div class="ingredients-box col">
+    <div class="element-box col">
       <h4>Add a new ingredient</h4>
+      <% if @dose.errors.any? %>
+      <div class="alert alert-danger">
+        <h3>Dose has errors!</h3>
+        <ul>
+          <% @dose.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.association :ingredient %>
+      <%= f.input :description %>
+      <%= f.submit "Add ingredient", class: "btn btn-success" %>
+      <% end %>
     </div>
+
   </div>
-
+    <%= link_to cocktails_path do %> <p>Back to Cocktails Index</p> <% end %>
   <div class="reviews">
-
+    <h3>Reviews</h3>
+    <ul>
+      <li> <% 5.times do %> <i class="fas fa-star"></i> <% end %> - Wonderful Cocktail!</li>
+      <li> <% 1.times do %><i class="fas fa-star"></i> <% end %> - Bad Cocktail</li>
+    </ul>
   </div>
 </div>
