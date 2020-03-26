@@ -28,12 +28,15 @@
            <div class="form-group row">
           <%#= f.submit "Create Cocktail", class: "btn btn-secondary" %>
           <%#= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+
           </div>
+
+          <%= f.submit "Create Cocktail", class: "btn btn-success mt-4 mr-4" %>
 
       </div>
       <div class="modal-footer _new_footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <%= f.submit "Create Cocktail", class: "btn btn-success" %>
+        <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
+
       </div>
        <% end %>
     </div>

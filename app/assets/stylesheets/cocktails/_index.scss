@@ -9,7 +9,9 @@
   width: 75%;
   margin-top: 50px;
   margin-left: 40px;
-
+  a {
+    text-decoration:none;
+  }
 
 }
 
@@ -41,9 +43,7 @@ h5 {
   box-shadow: 0 0 15px pink;
   padding: 16px;
   margin: 32px;
-  a{
-    text-decoration: none;
-  }
+
 
   i {
     font-size: 18px;
@@ -55,5 +55,9 @@ h5 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+    a {
+    text-decoration:none;
+  }
+
 }
 
