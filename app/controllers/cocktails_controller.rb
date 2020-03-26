@@ -7,7 +7,10 @@ class CocktailsController < ApplicationController
   def show
     @doses = Dose.where(cocktail_id: @cocktail)
     @dose = Dose.new
+    @review = Review.new
+    @reviews = Review.where(cocktail_id: @cocktail)
     @ingredients = Ingredient.all
+    reviews_average
   end
 
   def new
@@ -35,5 +38,17 @@ class CocktailsController < ApplicationController
 
   def cocktail_params
     params.require(:cocktail).permit(:name, :photo)
+  end
+
+  def reviews_average
+    sum = 0
+    if @reviews.empty?
+      @average = 0
+    else
+      @reviews.each do |review|
+        sum += review.rating
+      end
+      @average = sum / @reviews.count
+    end
   end
 end

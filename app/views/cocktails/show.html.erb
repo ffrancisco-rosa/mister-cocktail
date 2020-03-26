@@ -44,10 +44,43 @@
   <div class="reviews">
     <h3>Reviews</h3>
     <div class="row">
-      <ul>
-        <li> <% 5.times do %> <i class="fas fa-star"></i> <% end %> - Wonderful Cocktail!</li>
-        <li> <% 1.times do %><i class="fas fa-star"></i> <% end %> - Bad Cocktail</li>
-      </ul>
+      <div class="col">
+        <ul>
+          <li> <% 5.times do %> <i class="fas fa-star"></i> <% end %> - Wonderful Cocktail!</li>
+          <li> <% 1.times do %><i class="fas fa-star"></i> <% end %> - Bad Cocktail</li>
+        </ul>
+        <%= simple_form_for [@cocktail, @review] do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating, collection: 1..5 %>
+        <%= f.submit "Add Review", class: "btn btn-secondary" %>
+        <% end %>
+
+      </div>
+
+    </div>
+
+    <div>
+      <h3 class="col"> Users Reviews </h3>
+      <div class="reviews-box" >
+        <% if @reviews.empty? %>
+          <h5> This cocktail doesn't have reviews! </h5>
+        <% else %>
+          <% @reviews.each do |review| %>
+            <div class="review">
+              <%= cl_image_tag @cocktail.photo.key, class: "avatar-large" %>
+              <div class="review-content row">
+                <p class="col-4"> <% @average.times do  %> <i class="fas fa-star"></i> <% end %> </p>
+                <p class="col-8"> <%= review.content %> </p>
+              </div>
+
+              <div class="review-actions">
+                <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+                <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
