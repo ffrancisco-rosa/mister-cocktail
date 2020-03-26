@@ -1,8 +1,16 @@
-<div class="cocktail-img">
+<!-- <div class="cocktail-img">
   <%#= cl_image_tag("sample.jpg") %>
   <%= cl_image_tag @cocktail.photo.key %>
 
+</div> -->
+<!-- <div class="container mt-4"> -->
+<div class="container mt-4">
+  <div class="cocktail-img">
+    <%= cl_image_tag @cocktail.photo.key, height: "100%", width: 100 %>
+  </div>
 </div>
+
+
 <div class="container">
   <div class="row">
     <div class="element-box col">
@@ -33,7 +41,7 @@
 
       <%= simple_form_for [@cocktail, @dose] do |f| %>
       <%= f.association :ingredient %>
-      <%= f.input :description %>
+      <%= f.input :description, :maxlength => 60, :size => 40 %>
       <%= f.submit "Add ingredient", class: "btn btn-success" %>
       <% end %>
     </div>
@@ -49,7 +57,7 @@
           <li> <% 1.times do %><i class="fas fa-star"></i> <% end %> - Bad Cocktail</li>
         </ul>
         <%= simple_form_for [@cocktail, @review] do |f| %>
-        <%= f.input :content %>
+        <%= f.input :content, :maxlength => 90, :size => 40 %>
         <%= f.input :rating, collection: 1..5 %>
         <%= f.submit "Add Review", class: "btn btn-success" %>
         <% end %>
@@ -75,7 +83,7 @@
                 </div>
                 <div class="col-8">
                   <div class="row">
-                    <p class="mr-3"><strong>Description:</strong></p>
+                    <p class=""><strong>Description:</strong></p>
                     <p> <%= review.content %> </p>
                   </div>
                 </div>

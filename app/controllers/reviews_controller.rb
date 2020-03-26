@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to cocktail_path(@cocktail)
     else
-      render new_cocktail_review_path, notice: "Something went wrong! Please try again!"
+      render cocktail_path(@cocktail) , notice: "Something went wrong! Please try again!"
     end
   end
 
