@@ -12,7 +12,7 @@
       <% else %>
         <% @doses.each do |dose| %>
           <div>
-            <p><strong> <%= Ingredient.find(dose.ingredient_id).name %> </strong> - <%= dose.description %> <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do %> <i class="fas fa-trash-alt"></i> <% end %></p>
+            <p><strong> <%= Ingredient.find(dose.ingredient_id).name %> </strong> - <%= dose.description %> <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete , data: { confirm: "Are you sure?" } do %> <i class="fas fa-trash-alt"></i> <% end %></p>
           </div>
         <% end %>
       <% end %>
