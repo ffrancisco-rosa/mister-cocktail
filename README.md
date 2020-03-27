@@ -1,24 +1,10 @@
-# README
+First of all, if any of you want, you can check the app in here: http://cocktailarino.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This small web application was redone in about 14-15h of work.
 
-Things you may want to cover:
+Redid it all by scratch and has alot of things that should be improved.
 
-* Ruby version
+But all and all, will move on to another more complex project and in there will try to be more cautious and have better planing. Especially design wise.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Was a cool experience having to deal with all the features alone.
+Especially reading documentation on heroku deployment and cloudinary.
