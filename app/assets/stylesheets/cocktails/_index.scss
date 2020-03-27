@@ -63,6 +63,10 @@ h5 {
   .mobile-hide {
     display: none;
   }
+
+  i {
+    font-size: 0.4rem;
+  }
   .cards {
     grid-template-columns: 1fr;
   }
@@ -70,6 +74,10 @@ h5 {
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
+    i {
+    font-size: 0.9rem;
+  }
+
   .cards {
     grid-template-columns: 1fr;
   }

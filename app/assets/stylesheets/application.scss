@@ -42,3 +42,15 @@ html, body {
 a {
   text-decoration: none;
 }
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .title-navbar {
+    margin: 3px;
+
+
+  }
+  h1 {
+      font-size: 1.5rem;
+    }
+
+  }
