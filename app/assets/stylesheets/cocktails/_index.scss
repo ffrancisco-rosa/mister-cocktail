@@ -2,17 +2,17 @@
   height: 650px;
   background-image: url('https://res.cloudinary.com/frosa/image/upload/v1585153615/landing-page.jpg');
   background-size: cover;
-
+  width: 100%;
+  margin: 0;
 }
 
 .card-container {
   width: 75%;
-  margin-top: 40px;
+  margin-top: 80px;
   margin-left: 40px;
   a {
     text-decoration:none;
   }
-
 }
 
 ._secondary-card-container {
@@ -26,7 +26,6 @@ h5 {
   color: white;
   text-align: center;
 }
-
 
 .card-category {
   background-size: cover;
@@ -44,7 +43,6 @@ h5 {
   padding: 16px;
   margin: 32px;
 
-
   i {
     font-size: 18px;
     color: yellow;
@@ -58,6 +56,42 @@ h5 {
     a {
     text-decoration:none;
   }
-
 }
 
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .mobile-hide {
+    display: none;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
