@@ -41,3 +41,50 @@
 .fa-star {
   color: yellow;
 }
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .cocktail-img{
+     img {
+    height: 200px;
+  }
+
+  }
+   li {
+    i {
+      font-size: 0.8rem;
+    }
+  }
+  .review-p {
+    p {
+      font-size: 0.5rem;
+    }
+
+    i{
+      font-size: 0.5rem;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767px) {
+  .review-p {
+    i {
+      font-size: 0.5rem;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

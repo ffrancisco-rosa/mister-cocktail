@@ -15,7 +15,7 @@ class DosesController < ApplicationController
     if @dose.save
       redirect_to cocktail_path(@cocktail)
     else
-      redirect_to cocktail_path(@cocktail), notice: "Something went wrong! Please try again"
+      redirect_to cocktail_path(@cocktail), notice: "#{@dose.errors.full_messages.join(" and ")}!!"
     end
   end
 

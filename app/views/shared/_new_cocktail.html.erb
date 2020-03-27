@@ -17,7 +17,7 @@
             <%= simple_form_for (Cocktail.new), method: :post, wrapper: :inline_form, html: { class: 'form-inline' } do |f| %>
             <div class="form-row">
               <!-- <div class="col"> -->
-              <%= f.label 'Name', class: "new-form-name mr-4" %>
+              <%= f.label 'Name', maxlength: 10, size: 40, placeholder: "Máx 10 characters", class: "new-form-name mr-4" %>
               <%= f.input :name, class: "form-control new-form-name" %>
               <!-- </div> -->
             </div>

@@ -12,7 +12,11 @@
               <h5> Featured Cocktails! </h5>
               <% @cocktails.each do |cocktail| %>
                 <%= link_to cocktail_path(cocktail) do   %>
+                <% if cocktail.photo.attached? %>
                   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, crop: :fill %>')">
+                <% else %>
+                  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path('default_cocktail', height: 300, crop: :fill) %>')">
+                <% end %>
                     <%= cocktail.name %>
                   </div>
                 <% end %>
@@ -24,7 +28,11 @@
             <h5> Featured Cocktails! </h5>
             <% @cocktails.sample(2).each do |cocktail| %>
               <%= link_to cocktail_path(cocktail) do %>
-                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
+                <% if cocktail.photo.attached? %>
+                  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, crop: :fill %>')">
+                <% else %>
+                  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path('default_cocktail', height: 300, crop: :fill) %>')">
+                <% end %>
                   <p><%= cocktail.name %></p>
                   <% if @review.where(cocktail_id: cocktail).count == 0 %>
                     <%= "" %>
@@ -51,17 +59,21 @@
       <div class="cards">
         <% @cocktails.each do |cocktail| %>
           <%= link_to cocktail_path(cocktail) do %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
-              <p> <%= cocktail.name %> </p>
-              <p>
+            <% if cocktail.photo.attached? %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, crop: :fill %>')">
+            <% else %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path('default_cocktail', height: 300, crop: :fill) %>')">
+          <% end %>
+            <p> <%= cocktail.name %> </p>
+            <p>
               <% if @review.where(cocktail_id: cocktail).count == 0 %>
-                <%= "" %>
+                 <%= "" %>
               <% else %>
                 <% (@review.where(cocktail_id: cocktail).sum(:rating) / @review.where(cocktail_id: cocktail).count).times do %>
                   <i class="fas fa-star"></i>
-                <% end %>
-              </p>
               <% end %>
+            </p>
+          <% end %>
             </div>
           <% end %>
         <% end %>

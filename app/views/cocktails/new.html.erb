@@ -1,3 +1,19 @@
-<h5>hi</h5>
-
-<%= link_to "back", :back %>
+<div class="container">
+  <div class="row mt-4">
+    <%= image_tag("https://media.giphy.com/media/3o7TKDhgKC52OZhV0k/source.gif", height: 300, class: "center") %>
+  </div>
+  <div class="center mt-4">
+    <%= simple_form_for [@cocktail] do |f| %>
+      <div class="form-group">
+        <%= f.input :name, maxlength: 10, size: 40, placeholder: "Máx 10characters" %>
+      </div>
+      <div class="form-group">
+        <%= f.input :photo, as: :file %>
+      </div>
+      <%= f.submit "Add Cocktail", class: "btn btn-success btn-block" %>
+    <% end %>
+  </div>
+  <div class="center mt-4">
+    <%= link_to "Back to Cocktails Index", :back, class: "btn btn-warning btn-block" %>
+  </div>
+</div>
